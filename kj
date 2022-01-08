@@ -1,0 +1,141 @@
+#include <iostream>
+#include <string.h>
+#include <stdlib.h>
+#include <fstream>
+
+using namespace std;
+
+FILE *yazmadosyası;
+
+struct yurt
+{
+    int OdaNo, YatakNo, Yaş, Tel, YurtNo;
+    char ad[20], soyad[20], bölüm[20];
+}
+bilgi;
+
+void kayıt ();
+void sil ();
+void güncelle ();
+void ara ();
+void listele ();
+void çık ();
+void dosyayakaydet();
+
+int main(void)
+{
+    cout << "     ---------Adil Emre Öğrenci Yurdu--------     " << endl;
+
+    cout << "\t\t    1-) ögrenci kaydet       2-) öğrenci sil   " << endl;
+    cout << "\t\t     3-) bilgi güncelle      4-) öğrenci ara   " << endl;
+    cout << "\t\t     5-) tüm öğrenciler      6-) çıkış       " << endl;
+
+    cout << "   lütfen yapmak istediğiniz işlemi seçiniz...." << endl;
+    char seçim;
+    
+    switch (getchar())
+    {
+    case '1':
+        kayıt();
+    case '2':
+        sil();
+    case '3':
+        güncelle();
+    case '4':
+        ara();
+    case '5':
+        listele();
+    case '6':
+        çık();
+    }
+    getchar();
+    return 0;
+}
+
+//fonsiyonlar.....
+ void kayıt (void) {
+     cout << "             ......öğrenci kayıt işlemi.....            " << endl;
+     char seçim;
+     ofstream dosya1("isimler.txt", ios::out | ios::app);
+     do
+     {
+     cout << "öğrencinin adı :";
+     cin >> bilgi.ad;
+
+     cout << "öğrencinin soyadı :";
+     cin >> bilgi.soyad;
+
+     cout << "öğrencinin okuduğu bölüm :";
+     cin >> bilgi.bölüm;
+
+     cout << "öğrenci numarası :";
+     cin >> bilgi.YurtNo;
+
+     cout << "oda numarası :";
+     cin >> bilgi.OdaNo;
+
+     cout << "öğrencinin yaşı :";
+     cin >> bilgi.Yaş;
+
+     cout << "öğrencinin telefon numarası : ";
+     cin >> bilgi.Tel;
+
+     cout << "öğrencinin yatak numarası :";
+     cin >> bilgi.YatakNo;
+     cout << "başka seçim yapmak istiyor musunuz ? (E/e)";
+     seçim = getchar();
+     } while (seçim == 'e' || seçim == 'E');
+  dosya1.close();
+
+     cout << "bilgileriniz kayıt edilmiştir.." << endl;
+
+     cout << "başka bir işlem yapmak istiyor musunuz (E/H) ? " << endl;
+     
+     
+
+     switch (getchar())
+     {
+     case 'E':
+        main();
+        
+     case 'e':
+         main();
+         
+     case 'H':
+         exit(1);
+        
+     case 'h':
+         exit(1);
+       
+          }
+    }
+
+ void sil (void){
+
+}
+ void güncelle (void){
+
+}
+ void ara (void){
+
+ }
+ void listele (){
+
+ }
+ void çık (void){
+     cout << "çıkmak için bir tuşa basın ..." << endl;
+     exit(1);
+ } 
+
+void dosyayakaydet (void) {
+
+    fstream dosya;
+    dosya.open("ödev.txt");
+
+    dosya.close();
+}
+//fonksiyonlar......
+
+
+
+
